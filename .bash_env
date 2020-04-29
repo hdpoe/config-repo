@@ -1,0 +1,9 @@
+export EDITOR='vim'
+export VISUAL='vim'
+
+export PATH=$PATH:/home/hpoe/bin
+export PATH=$PATH:/usr/local/go/bin
+export PATH="$HOME/.rbenv/bin:/home/hpoe/.local/bin:/home/hpoe/Apps/bin:$PATH"
+export GOPATH="/home/hpoe/go"
+
+export RACK_ENV=development

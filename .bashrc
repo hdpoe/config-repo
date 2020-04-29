@@ -1,12 +1,11 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 # If not running interactively, don't do anything
 case $- in
   *i*) ;;
   *) return;;
 esac
+
+
+TERMINAL='lxterminal'
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -93,41 +92,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# my custom aliases
-alias vi='vim'
-alias system-upgrade="sudo apt-get update && sudo apt-get -y upgrade"
-alias tmux="TERM=xterm-256color tmux"
-alias reload="source ~/.bashrc"
-
-# Terraform aliases
-alias tf="terraform"
-alias tfd="terraform destroy"
-alias tfa="terraform apply"
-alias tfaa="terraform apply -auto-approve"
-alias tfda="terraform destroy -auto-approve"
-alias tfv="terraform validate"
-alias tfdoc="terraform-docs ."
-alias tfget="terraform get --update"
-alias tffmt="terraform fmt"
-
-# Git aliases
-alias gits="git status"
-alias gitaa="git add -A"
-alias gitd="git diff"
-alias gitc="git commit -m"
-
-
-# My aliases for doing a search for an entire project
-alias pfind='find . -type f | xargs grep -n'
-alias rfind='find . -type f -name "*.rb" | xargs grep -n '
-alias gofind='find . -type f -name "*.go" | xargs grep -n'
-
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -141,6 +105,10 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
+if [ -f ~/.bash_env ]; then
+  . ~/.bash_env
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -151,19 +119,27 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-export PATH="$HOME/.rbenv/bin:/home/hpoe/.local/bin:/home/hpoe/Apps/bin:$PATH"
-export RACK_ENV=development
+
 eval "$(rbenv init -)"
 
-export EDITOR='vim'
-export VISUAL='vim'
-export NVM_DIR="/home/hpoe/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PATH=$PATH:/home/hpoe/bin
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH="${HOME}/go"
-
-
 source '/home/hpoe/lib/azure-cli/az.completion'
+
+# Set up output format for time
+TIMEFORMAT=%R
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+PATH="/home/hpoe/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/hpoe/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/hpoe/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/hpoe/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/hpoe/perl5"; export PERL_MM_OPT;
+
+JAVA_HOME='/usr/lib/jvm/jdk-12.0.1'
+
+ssh-add ~/.ssh/id_rsa &>/dev/null
+ssh-add ~/.ssh/id_rsa_wam &> /dev/null
+GPG_TTY=$(tty)
+export GPG_TTY
