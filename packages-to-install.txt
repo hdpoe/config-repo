@@ -1,0 +1,10 @@
+On a Ubuntu box the following packages are installed.
+build-essential
+i3
+xterm
+xinit
+x11-server-utils
+tmux
+emacs
+firefox 
+  > sudo add-apt-repository ppa:mozillateam/firefox-next
