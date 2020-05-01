@@ -8,3 +8,4 @@ tmux
 emacs
 firefox 
   > sudo add-apt-repository ppa:mozillateam/firefox-next
+jq
