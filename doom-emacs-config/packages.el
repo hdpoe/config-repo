@@ -17,7 +17,8 @@
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
-
+(package! minimap)
+(package! anki-editor)
 ;; To install a package directly from a particular repo, you'll need to specify
 ;; a `:recipe'. You'll find documentation on what `:recipe' accepts here:
 ;; https://github.com/raxod502/straight.el#the-recipe-format
@@ -30,6 +31,15 @@
 ;(package! this-package
 ;  :recipe (:host github :repo "username/repo"
 ;           :files ("some-file.el" "src/lisp/*.el")))
+
+(package! org-present-mode
+  :recipe (:host github :repo "rlister/org-present"
+           :files ("org-present.el")))
+
+(package! power-mode
+  :recipe (:host github :repo "ALSchwalm/power-mode.el"))
+           ;;:files ("power-mode.el")))
+
 
 ;; If you'd like to disable a package included with Doom, for whatever reason,
 ;; you can do so here with the `:disable' property:
@@ -45,3 +55,5 @@
 ;; This is required for some packages whose default branch isn't 'master' (which
 ;; our package manager can't deal with; see raxod502/straight.el#279)
 ;(package! builtin-package :recipe (:branch "develop"))
+
+

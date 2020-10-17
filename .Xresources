@@ -1,5 +1,8 @@
-xterm*VT100*foreground: green
-xterm*VT100*background: black
+!xterm*VT100*foreground: green
+!xterm*VT100*background: black
+
+xterm*VT100*background: #1E2127
+xterm*VT100*foreground: #ABB2BF
 
 xterm*faceName: DejaVu Sans Mono
 xterm*faceSize: 16
