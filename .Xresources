@@ -1,12 +1,23 @@
 !xterm*VT100*foreground: green
 !xterm*VT100*background: black
 
-xterm*VT100*background: #1E2127
-xterm*VT100*foreground: #ABB2BF
+!xterm*VT100*background: #1E2127
+!xterm*VT100*foreground: #ABB2BF
+
+xterm*VT100*background: black
+xterm*VT100*foreground: #aa0123
 
 xterm*faceName: DejaVu Sans Mono
 xterm*faceSize: 16
 xterm*renderFont: true
+
+! Used for presentation mode
+!xterm*VT100*background: white
+!xterm*VT100*foreground: black
+!xterm*faceName: DejaVu Sans Mono
+!xterm*faceSize: 24
+!xterm*renderFont: true
+
 
 xterm*VT100*Translations: #override \
  Shift <KeyPress> Insert: insert-selection(CLIPBOARD) \n\
