@@ -49,7 +49,7 @@ let g:ale_fixers = {
 
 
 syntax on 
-colorscheme xcodedark
+colorscheme ron
 set nobackup
 set number
 inoremap jk <ESC>

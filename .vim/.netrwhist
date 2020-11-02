@@ -1,10 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/home/hpoe/Projects/CustomLibs/wally-ruby/utils'
-let g:netrw_dirhist_2='/home/hpoe/Projects/Personal/MasteryTrackingApi/src/MasteryTrackingApi/Exceptions'
-let g:netrw_dirhist_3='/home/hpoe/Projects/Amaczar/api/workers/shipments'
-let g:netrw_dirhist_4='/home/hpoe/Projects/Amaczar/api/workers'
-let g:netrw_dirhist_5='/home/hpoe/Projects/Amaczar/api/workers/shipments'
-let g:netrw_dirhist_6='/home/hpoe/Desktop'
-let g:netrw_dirhist_7='/home/hpoe/Projects/Amaczar/api/routes'
-let g:netrw_dirhist_8='/home/hpoe/.vim/bundle/Vundle.vim'
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/hpoe/.vim'
