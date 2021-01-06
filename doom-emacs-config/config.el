@@ -1,5 +1,5 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-
+(load-file "~/.doom.d/eshell-aliases.el")
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 ;;
@@ -25,7 +25,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;; (setq doom-theme 'doom-one)
-
+(setq doom-theme 'doom-sourcerer)
 
 ;; HPOE Org Options
 ;; If you use `org' and don't want your org files in the default location below,
@@ -112,7 +112,7 @@
        `((".*" ,temporary-file-directory t)))
 
 (setq projectile-project-search-path '("~/Projects"))
-
+(setq projectile-auto-discover t)
 
 ;; HPOE Eshell Customization
 (add-hook 'eshell-mode-hook
@@ -152,7 +152,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (global-visual-line-mode t)
-(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 24))
+(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 21))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -191,3 +191,16 @@
 ;;       (let* ((fn-list (dired-get-marked-files nil arg)))
 ;;         (mapc 'evil-window-vsplit nil fn-list)))))
 ;;(evil-window-vsplit &optional COUNT FILE)
+
+
+;; HPOE LANG
+(elpy-enable)
+(require 'lsp-java)
+(add-hook 'java-mode-hook #'lsp)
+
+;; HPOE Custom File Associations
+(add-to-list 'auto-mode-alist '("\\.ps1\\'" . powershell-mode))
+
+;; HPOE browsers
+(setq browse-url-browser-function 'w3m-browse-url)
+(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)

@@ -1,0 +1,2 @@
+$ ./configure --enable-autodepend --with-x-toolkit=gtk --with-json --with-modules --with-x --with-included-regex --with-makeinfo --with-threads --with-zlib --with-gnutls --with-dbus --with-libotf --with-xft --with-xml2 --with-libsystemd --with-rsvg --with-png -with-gif --with-tiff --with-jpg --with-xpm
+

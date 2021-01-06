@@ -19,6 +19,9 @@
 ;(package! some-package)
 (package! minimap)
 (package! anki-editor)
+(package! elpy)
+(package! powershell)
+(package! lsp-java)
 ;; To install a package directly from a particular repo, you'll need to specify
 ;; a `:recipe'. You'll find documentation on what `:recipe' accepts here:
 ;; https://github.com/raxod502/straight.el#the-recipe-format
@@ -36,9 +39,9 @@
   :recipe (:host github :repo "rlister/org-present"
            :files ("org-present.el")))
 
-(package! power-mode
-  :recipe (:host github :repo "ALSchwalm/power-mode.el"))
-           ;;:files ("power-mode.el")))
+;;(package! power-mode
+;;  :recipe (:host github :repo "ALSchwalm/power-mode.el"))
+;;           ;;:files ("power-mode.el")))
 
 
 ;; If you'd like to disable a package included with Doom, for whatever reason,
