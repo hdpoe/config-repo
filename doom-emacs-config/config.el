@@ -122,7 +122,7 @@
 
 ;; HPOE Eshell Customization
 (add-hook 'eshell-mode-hook
-          (defun rm-eshell-postoutput-scroll-to-bottom ()
+          (defun hpoe-eshell-mode-setup ()
             (remove-hook 'eshell-output-filter-functions
                          'eshell-postoutput-scroll-to-bottom)))
 
@@ -132,6 +132,54 @@
   (interactive "P")
   (mapc (lambda(file) (evil-window-vsplit nil file)) (dired-get-marked-files nil arg)))
 
+;; (add-hook 'eshell-mode-hook
+;;           (lambda ()
+;;             (interactive)
+;;             (define-key eshell-mode-map
+;;               (kbd "C-l") 'eshell/clear-scrollback)))
+
+;; (add-hook 'eshell-mode-hook
+;;           (lambda ()
+;;             (define-key eshell-mode-map
+;;               [remap eshell/clear] eshell/clear-scrollback)))
+;; (add-hook 'eshell-mode-hook
+;;           (lambda ()
+;;             (setq eshell-mode-map
+;;                   (append
+;;                    (remove (nth 12 eshell-mode-map) eshell-mode-map)
+;;                    '((12  #'eshell/clear-scrollback))))))
+
+(after! esh-mode
+  (map! :map eshell-mode-map
+        :n  "RET"    #'+eshell/goto-end-of-prompt
+        :n  [return] #'+eshell/goto-end-of-prompt
+        :ni "C-j"    #'eshell-next-matching-input-from-input
+        :ni "C-k"    #'eshell-previous-matching-input-from-input
+        :ig "C-d"    #'+eshell/quit-or-delete-char
+        :i  "C-c h"  #'evil-window-left
+        :i  "C-c j"  #'evil-window-down
+        :i  "C-c k"  #'evil-window-up
+        :i  "C-c l"  #'evil-window-right
+        "C-s"   #'+eshell/search-history
+        ;; Emacs bindings
+        "C-e"   #'end-of-line
+        ;; Tmux-esque prefix keybinds
+        "C-c s" #'+eshell/split-below
+        "C-c v" #'+eshell/split-right
+        "C-c x" #'+eshell/kill-and-close
+        [remap split-window-below]  #'+eshell/split-below
+        [remap split-window-right]  #'+eshell/split-right
+        [remap doom/backward-to-bol-or-indent] #'eshell-bol
+        [remap doom/backward-kill-to-bol-and-indent] #'eshell-kill-input
+        [remap evil-delete-back-to-indentation] #'eshell-kill-input
+        [remap evil-window-split]   #'+eshell/split-below
+        [remap evil-window-vsplit]  #'+eshell/split-right
+        ;; To emulate terminal keybinds
+        "C-l"   (lambda () (interactive) (eshell/clear-scrollback)(eshell-send-input));;#'eshell/clear-scrollback
+        (:localleader
+         "b" #'eshell-insert-buffer-name
+         "e" #'eshell-insert-envvar
+         "s" #'+eshell/search-history)))
 
 ;; HPOE Custom Keybindings
 (map! :leader
@@ -158,7 +206,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (global-visual-line-mode t)
-(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 24))
+(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 18))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -166,7 +214,8 @@
 
 ;; (load-theme 'matrix)
 ;;(setq doom-theme 'doom-acario-dark)
-(setq doom-theme 'doom-Iosvkem)
+;; (setq doom-theme 'doom-Iosvkem)
+(setq doom-theme 'doom-homage-black)
 
 ;;; HPOE PRESENTATION mode
 ;;;(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 24))
