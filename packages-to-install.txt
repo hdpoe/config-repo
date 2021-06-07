@@ -3,9 +3,29 @@ build-essential
 i3
 xterm
 xinit
-x11-server-utils
+x11-xserver-utils
 tmux
 emacs
 firefox 
   > sudo add-apt-repository ppa:mozillateam/firefox-next
 jq
+
+# For ubuntu 
+gnome-tweaks
+vim
+git
+
+
+# For Emacs needs the following apt packages installed
+autoconf
+libx11-dev
+libglib2.0-dev
+libgtk-3-dev libgtk-3-0
+libjpeg-dev
+libtiff-dev
+libgif-dev
+gnutls-dev
+libxpm-dev
+cmake
+libtool
+libvterm-dev
