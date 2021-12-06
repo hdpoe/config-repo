@@ -17,6 +17,7 @@ git
 
 
 # For Emacs needs the following apt packages installed
+# Build
 autoconf
 libx11-dev
 libglib2.0-dev
@@ -29,3 +30,10 @@ libxpm-dev
 cmake
 libtool
 libvterm-dev
+
+# Run
+fdclone
+ripgrep
+shellcheck
+clang
+libclang-dev

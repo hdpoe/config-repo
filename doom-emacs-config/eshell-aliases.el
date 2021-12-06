@@ -5,7 +5,7 @@
                  ("tmux" "TERM=xterm-256color tmux")
                  ("reload" "source ~/.bashrc")
                  ("clip" "xclip -selection clipboard")
-                 ("reload-wp" "feh --bg-max '/home/hpoe/Pictures/dkk-guardsman.png'")
+                 ("reload-wp" "feh --bg-max '/home/hpoe/Pictures/imperial-guard.jpg'")
                  ("tf" "terraform")
                  ("tfd" "terraform destroy")
                  ("tfa" "terraform apply")
