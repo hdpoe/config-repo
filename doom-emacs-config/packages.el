@@ -26,6 +26,9 @@
 (package! py-autopep8)
 (package! vue-mode)
 (package! vue-html-mode)
+(package! vline)
+(package! unicode-fonts)
+(package! kotlin-mode)
 ;; To install a package directly from a particular repo, you'll need to specify
 ;; a `:recipe'. You'll find documentation on what `:recipe' accepts here:
 ;; https://github.com/raxod502/straight.el#the-recipe-format
@@ -42,6 +45,10 @@
 (package! org-present-mode
   :recipe (:host github :repo "rlister/org-present"
            :files ("org-present.el")))
+
+(package! jsonnet-mode
+  :recipe (:host github :repo "tminor/jsonnet-mode"
+           :files ("jsonnet-mode.el")))
 
 ;;(package! power-mode
 ;;  :recipe (:host github :repo "ALSchwalm/power-mode.el"))

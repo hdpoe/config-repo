@@ -30,6 +30,7 @@ libxpm-dev
 cmake
 libtool
 libvterm-dev
+libjansson-dev
 
 # Run
 fdclone

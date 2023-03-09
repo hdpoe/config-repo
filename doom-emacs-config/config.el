@@ -1,5 +1,7 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 (load-file "~/.doom.d/eshell-aliases.el")
+(require 'unicode-fonts)
+(unicode-fonts-setup)
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 ;;
@@ -20,7 +22,6 @@
 ;; font string. You generally only need these two:
 ;;(setq doom-font (font-spec :family "monospace" :size 14))
 ;;(setq doom-font "DejaVu Sans Mono-24")
-
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
@@ -163,7 +164,10 @@
 (scroll-bar-mode -1)
 (global-visual-line-mode t)
 ;;(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 12))
-(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 24))
+;;(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 24))
+;; NORMAL DISPLAY MODE
+;; (setq doom-font (font-spec :family "DejaVu Sans Mono" :size 16))
+(setq doom-font "AvQest")
 ;;(setq doom-theme 'doom-one-light)
 ;;(setq doom-theme 'doom-one-light)
 
@@ -178,8 +182,8 @@
 (setq doom-theme 'doom-homage-black)
 
 ;;; HPOE PRESENTATION mode
-;;(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 36))
-;;;(setq doom-theme 'doom-one-light)
+;; (setq doom-font (font-spec :family "DejaVu Sans Mono" :size 26))
+;; (setq doom-theme 'doom-one-light)
 
 ;; HPOE documentation
 ;; Add new entries to the drawer
@@ -188,12 +192,14 @@
 ;;        :desc "Format Json" "j" #'json-pretty-print-buffer))  < Actual key and command
 
 ;; HPOE LANG
-(elpy-enable)
-(require 'lsp-java)
-(add-hook 'java-mode-hook #'lsp)
+;; (elpy-enable)
+;; (require 'lsp-java)
+;; (add-hook 'java-mode-hook #'lsp)
 
 ;; HPOE Custom File Associations
 (add-to-list 'auto-mode-alist '("\\.ps1\\'" . powershell-mode))
+;;(add-to-list 'auto-mode-alist '("\\.yml\\'" . vline-mode))
+
 
 ;; HPOE browsers
 ;;(setq browse-url-browser-function 'w3m-browse-url)
